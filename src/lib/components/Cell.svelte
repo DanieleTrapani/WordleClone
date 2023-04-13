@@ -1,11 +1,25 @@
-<div />
+<script>
+  export let content;
+</script>
+
+<div class="parent flex justify-center">
+  <div class="child">
+    {content}
+  </div>
+</div>
 
 <style>
-  div {
+  .parent {
+    height: 0;
     border-width: 1.1px;
     border-color: #525252;
-    margin: 2px 0px;
     flex-basis: 20%;
     padding-bottom: 20%;
+  }
+
+  .child {
+    text-align: center;
+    font-size: 2rem;
+    color: rgb(210, 209, 209);
   }
 </style>

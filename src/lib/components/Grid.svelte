@@ -1,11 +1,15 @@
 <script>
   import Cell from "../components/Cell.svelte";
-  let cells = Array(30).fill("");
+  import { rows } from "../stores/store";
 </script>
 
-<div class="wordGrid flex flex-wrap">
-  {#each cells as cell}
-    <Cell />
+<div class="wordGrid flex flex-col">
+  {#each rows as row}
+    <div class="flex gap-1">
+      {#each row as cell}
+        <Cell content={cell} />
+      {/each}
+    </div>
   {/each}
 </div>
 
