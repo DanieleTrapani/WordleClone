@@ -11,7 +11,8 @@
 
 <style>
   header {
-    border-width: 1px;
+    border-bottom-width: 1px;
+    border-color: #3b3b3b;
     margin-bottom: 20px;
   }
 

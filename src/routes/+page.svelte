@@ -6,7 +6,7 @@
 
 <body class="bg-black min-h-screen">
   <Header />
-  <main>
+  <main class="flex flex-col">
     <Grid />
     <Letters />
   </main>
@@ -14,6 +14,10 @@
 
 <style>
   body {
-    color: #cdcdcd;
+    color: white;
+  }
+
+  main {
+    padding: 0px 60px;
   }
 </style>
