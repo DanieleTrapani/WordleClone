@@ -7,16 +7,19 @@
   ];
 
   const regex = "qwertyuiopasdfghjklzxcvbnm";
-  let chosenLetter = "";
   let rowIndex = 0;
   let wordIndex = 0;
 
+  const updateRows = (letter) => {
+    const updatedRows = [...$rows]; // Create a shallow copy of rows
+    updatedRows[rowIndex] = [...updatedRows[rowIndex]]; // Create a shallow copy of the first array
+    updatedRows[rowIndex][wordIndex] = letter; // Update the first item in the first array
+    rows.set(updatedRows);
+  };
+
   export const handleClick = (letter) => {
     if (wordIndex < 5) {
-      const updatedRows = [...$rows]; // Create a shallow copy of rows
-      updatedRows[rowIndex] = [...updatedRows[rowIndex]]; // Create a shallow copy of the first array
-      updatedRows[rowIndex][wordIndex] = letter; // Update the first item in the first array
-      rows.set(updatedRows);
+      updateRows(letter);
       wordIndex += 1;
     }
   };
@@ -29,11 +32,8 @@
       input = input.toUpperCase();
       handleClick(input);
     } else if (input === "Backspace") {
-      wordIndex -= 1;
-      const updatedRows = [...$rows]; // Create a shallow copy of rows
-      updatedRows[rowIndex] = [...updatedRows[rowIndex]]; // Create a shallow copy of the first array
-      updatedRows[rowIndex][wordIndex] = ""; // Update the first item in the first array
-      rows.set(updatedRows);
+      wordIndex > 0 ? (wordIndex -= 1) : (wordIndex = 0);
+      updateRows("");
     } else if (input === "Enter") {
       //validate word and go to next row
     }
