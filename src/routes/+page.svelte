@@ -3,8 +3,8 @@
   import Header from "../lib/components/Header.svelte";
   import Letters from "../lib/components/Letters.svelte";
 
-  import { word } from "../lib/stores/store";
-  console.log($word);
+  import { word, rows } from "../lib/stores/store";
+  console.log($rows);
 </script>
 
 <body class="bg-black min-h-screen">

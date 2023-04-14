@@ -4,4 +4,4 @@ export const word = readable('Hello', () => {
   return function stop() { }
 })
 
-export const rows = Array(6).fill(Array(5).fill(""));
+export const rows = writable(Array(6).fill(Array(5).fill("")));

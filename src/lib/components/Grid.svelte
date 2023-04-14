@@ -4,7 +4,7 @@
 </script>
 
 <div class="wordGrid flex flex-col">
-  {#each rows as row}
+  {#each $rows as row}
     <div class="flex gap-1">
       {#each row as cell}
         <Cell content={cell} />
