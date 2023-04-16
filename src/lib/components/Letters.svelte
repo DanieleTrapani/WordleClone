@@ -5,6 +5,7 @@
     "ASDFGHJKL".split(""),
     ["ENTER", "ZXCVBNM".split(""), "DEL"].flat(),
   ];
+  let guess = "";
 
   const regex = "qwertyuiopasdfghjklzxcvbnm";
   let rowIndex = 0;
@@ -17,10 +18,34 @@
     rows.set(updatedRows);
   };
 
+  const validate = () => {
+    guess = $rows[rowIndex].join("").toLowerCase();
+    if (guess === $word) {
+      console.log(guess);
+      alert("Correct!");
+    } else {
+      alert("Wrong!");
+    }
+  };
+
   export const handleClick = (letter) => {
     if (wordIndex < 5) {
-      updateRows(letter);
-      wordIndex += 1;
+      switch (letter) {
+        case "ENTER":
+          if (wordIndex === 5) {
+            validate();
+          } else {
+            alert("Word not complete");
+          }
+          break;
+        case "DEL":
+          wordIndex > 0 ? (wordIndex -= 1) : (wordIndex = 0);
+          updateRows("");
+          break;
+        default:
+          updateRows(letter);
+          wordIndex += 1;
+      }
     }
   };
 </script>
@@ -36,11 +61,16 @@
       updateRows("");
     } else if (input === "Enter") {
       //validate word and go to next row
+      if (wordIndex === 5) {
+        validate();
+      } else {
+        alert("Word not complete");
+      }
     }
   }}
 />
 
-<div>
+<div class="letterGrid">
   {#each letterRows as row}
     <div class="flex justify-center">
       {#each row as letter}
@@ -64,5 +94,33 @@
     width: 100px;
     border-radius: 3px;
     color: white;
+  }
+
+  @media only screen and (min-width: 750px) {
+    .letterGrid {
+      padding: 15px 180px;
+    }
+
+    .letter {
+      width: 200px;
+    }
+  }
+
+  @media only screen and (min-width: 1020px) {
+    .letterGrid {
+      padding: 15px 200px;
+      text-align: center;
+    }
+
+    .letter {
+      height: 60px;
+      font-size: 1.5rem;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) {
+    .letterGrid {
+      padding: 15px 550px 50px;
+    }
   }
 </style>

@@ -4,7 +4,6 @@
   import Letters from "../lib/components/Letters.svelte";
 
   import { word, rows } from "../lib/stores/store";
-  console.log($rows);
 </script>
 
 <body class="bg-black min-h-screen">

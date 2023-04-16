@@ -17,4 +17,22 @@
   .wordGrid {
     padding: 15px 30px;
   }
+
+  @media only screen and (min-width: 750px) {
+    .wordGrid {
+      padding: 15px 200px;
+    }
+  }
+
+  @media only screen and (min-width: 1020px) {
+    .wordGrid {
+      padding: 15px 250px;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) {
+    .wordGrid {
+      padding: 15px 520px;
+    }
+  }
 </style>

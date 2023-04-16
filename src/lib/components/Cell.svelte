@@ -15,6 +15,7 @@
     border-color: #525252;
     flex-basis: 20%;
     padding-bottom: 20%;
+    border-radius: 5px;
   }
 
   .child {

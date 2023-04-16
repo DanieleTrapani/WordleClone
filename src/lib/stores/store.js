@@ -1,6 +1,6 @@
 import { readable, writable } from 'svelte/store'
 
-export const word = readable('Hello', () => {
+export const word = readable('hello', () => {
   return function stop() { }
 })
 
