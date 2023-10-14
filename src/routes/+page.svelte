@@ -2,6 +2,8 @@
   import Grid from "../lib/components/Grid.svelte";
   import Header from "../lib/components/Header.svelte";
   import Letters from "../lib/components/Letters.svelte";
+
+  import { word, rows } from "../lib/stores/store";
 </script>
 
 <body class="bg-black min-h-screen">
